@@ -69,6 +69,9 @@
 // lazy.value;
 // console.log(reads); // 2
 
+// ==================================================================
+// ==================================================================
+
 const animal = { eats: true };
 const dog = Object.create(animal);
 dog.barks = true;
@@ -104,6 +107,9 @@ console.log(user.regular()); // Sam
 console.log(user.arrow()); // undefined (arrow function do not have their own 'this' rather they inherit this from their enclosing lexical scope)
 console.log(fn()); // undefined
 
+// ==================================================================
+// ==================================================================
+
 // 1. Implicit Binding- while invoking a method of an object, we use dot notation to access it
 // ex-1:
 const blogInfo = {
@@ -114,6 +120,9 @@ const blogInfo = {
   },
 };
 blogInfo.message();
+
+// ==================================================================
+// ==================================================================
 
 // ex-2:
 function greeting(obj) {
@@ -151,6 +160,9 @@ const person = {
 
 person.address.showCity();
 
+// ==================================================================
+// ==================================================================
+
 // 2.Explicit binding-
 // call
 function greet() {
@@ -184,10 +196,21 @@ func();
 
 // arrow functions
 const pers = {
-	name: 'Raj',
-	greetUser: () => {
-		console.log(this.name);
-	}
-}
-
+  name: "Raj",
+  greetUser: () => {
+    console.log(this.name);
+  },
+};
 pers.greetUser();
+// ==================================================================
+// ==================================================================
+
+// ex- call, apply, bind
+function greetPer(g) {
+  console.log(`${g}, ${this.name}`);
+}
+const p1 = { name: "JAMES" };
+
+greetPer.call(p1, "Hi"); // "Hi, JAMES"
+greetPer.apply(p1, ["Hi"]); // "Hi, JAMES"
+greetPer.bind(p1)("Hi"); // "Hi, JAMES"
