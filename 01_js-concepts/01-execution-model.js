@@ -66,3 +66,8 @@ console.log(6);
 // 5 -> 1 -> 2 (macrotask mein jaayega) -> await ke baad sab microtask mein usse pehle check karo kuch global code mein, yes 6 is there so after 5 and 1, 6 would print, then check again if anything is remaining in global code, if no then everything is either in microtask or macrotask, so now 3 would print, again promise comes (ye promise tab tak resolve nahi hoga jab tak iske andar ka setTimeout fire nahi hoga, toh setTimeout ek macrotask hai toh usme already 2 hai toh ab 4 bhi chala jayega), toh ab sab bache hue microtask run honge aur fir macrotask so us hissab se neeche wala output aayega.
 
 // output- 5 -> 1 -> 6 -> 3 -> 2 -> 4
+
+// JS is single-threaded — how does it do async work?
+console.log("start");
+setTimeout(() => console.log("timer"), 0); // handed off, queued
+console.log("end");

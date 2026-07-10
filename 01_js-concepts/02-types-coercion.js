@@ -17,7 +17,7 @@ console.log(typeof function () {}); // "function" — the one non-primitive type
 //   boolean vs any    -> boolean becomes number first
 //   object vs prim    -> object becomes primitive (valueOf, then toString)
 
-console.log(null == undefined); // true
+console.log(null == undefined); // true (abstract/loose equality mein dono same hain ye ek special case hai)
 console.log(null == 0); // false — null coerces to nothing
 console.log([] == false); // true  — [] -> "" -> 0, false -> 0
 console.log([] == ![]); // true  — same thing, dressed up
