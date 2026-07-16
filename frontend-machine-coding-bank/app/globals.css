@@ -24,3 +24,39 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+.autocomplete {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+  position: relative;
+}
+.suggestions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 100%;
+  max-width: 320px;
+  padding: 0.5rem;
+  border: 1px solid #d1d5db;
+  border-radius: 0.5rem;
+  background-color: #ffffff;
+  position: absolute;
+  top: 100%;
+}
+.suggestion button {
+  width: 100%;
+  padding: 0.5rem;
+  text-align: left;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+.suggestion button:hover {
+  background-color: #f3f4f6;
+}
+.suggestion button[data-selected="true"] {
+  background-color: red;
+}
