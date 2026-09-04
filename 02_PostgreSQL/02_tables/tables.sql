@@ -11,3 +11,6 @@ CREATE TABLE Employee(
 );
 
 SELECT * FROM Employee;
+
+--2. DROP TABLE
+DROP TABLE employee;
