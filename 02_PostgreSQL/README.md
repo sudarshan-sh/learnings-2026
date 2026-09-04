@@ -12,62 +12,34 @@ postgres/
 ├── .gitignore
 │
 ├── 01_databases/
-│   ├── 01-create-database.sql
-│   ├── 02-drop-database.sql
-│   └── 03-list-databases.sql
+│   └── databases.sql
 │
 ├── 02_tables/
-│   ├── 01-create-tables.sql
-│   ├── 02-alter-table.sql
-│   ├── 03-drop-table.sql
-│   └── 04-truncate-table.sql
+│   └── tables.sql
 │
 ├── 03_crud/
-│   ├── 01-insert.sql
-│   ├── 02-select.sql
-│   ├── 03-update.sql
-│   └── 04-delete.sql
+│   └── crud.sql
 │
 ├── 04_constraints/
-│   ├── 01-primary-key.sql
-│   ├── 02-foreign-key.sql
-│   ├── 03-not-null.sql
-│   ├── 04-unique.sql
-│   ├── 05-check.sql
-│   └── 06-default.sql
+│   └── constraints.sql
 │
 ├── 05_queries/
-│   ├── 01-where.sql
-│   ├── 02-order-by.sql
-│   ├── 03-group-by.sql
-│   ├── 04-having.sql
-│   └── 05-limit-offset.sql
+│   └── queries.sql
 │
 ├── 06_joins/
-│   ├── 01-inner-join.sql
-│   ├── 02-left-join.sql
-│   ├── 03-right-join.sql
-│   └── 04-full-join.sql
+│   └── joins.sql
 │
 ├── 07_subqueries/
-│   ├── 01-scalar-subquery.sql
-│   ├── 02-correlated-subquery.sql
-│   └── 03-exists.sql
+│   └── subqueries.sql
 │
 ├── 08_functions/
-│   ├── 01-aggregate-functions.sql
-│   ├── 02-string-functions.sql
-│   ├── 03-date-functions.sql
-│   └── 04-window-functions.sql
+│   └── functions.sql
 │
 ├── 09_indexes/
-│   ├── 01-create-index.sql
-│   └── 02-explain.sql
+│   └── indexes.sql
 │
 ├── 10_transactions/
-│   ├── 01-begin-commit.sql
-│   ├── 02-rollback.sql
-│   └── 03-savepoint.sql
+│   └── transactions.sql
 │
 └── 11_project/
     └── ecommerce/
@@ -76,9 +48,16 @@ postgres/
         └── 03-queries.sql
 ```
 
-- `01-databases` - Database creation and management
-- `02-tables` - Table creation and modification
-- `03-crud` - INSERT, SELECT, UPDATE, DELETE
-- `04-constraints` - Primary key, foreign key, unique, etc.
-- `05-queries` - Filtering, grouping, sorting, etc.
-- `06-joins` - SQL joins
+Each topic folder holds a single `.sql` file covering all the operations for that topic (e.g. `databases.sql` includes CREATE, DROP, and LIST). The `11_project` folder is the exception — it's a small end-to-end project, so schema, seed data, and queries stay in separate files.
+
+- `01_databases` - Database creation, deletion, and listing
+- `02_tables` - Table creation and modification
+- `03_crud` - INSERT, SELECT, UPDATE, DELETE
+- `04_constraints` - Primary key, foreign key, unique, etc.
+- `05_queries` - Filtering, grouping, sorting, etc.
+- `06_joins` - SQL joins
+- `07_subqueries` - Scalar, correlated, and EXISTS subqueries
+- `08_functions` - Aggregate, string, date, and window functions
+- `09_indexes` - Indexes and query plans
+- `10_transactions` - Transactions, rollbacks, and savepoints
+- `11_project` - A small end-to-end e-commerce schema and query set
