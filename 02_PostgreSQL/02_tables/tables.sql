@@ -67,3 +67,23 @@ ALTER TABLE employee ADD CONSTRAINT C1 UNIQUE(columns);
 c.
 ALTER TABLE employee
 DROP INDEX C1;
+
+-- create another table for having a foreign key of employeeID
+
+CREATE TABLE Project (projectid int PRIMARY KEY,
+                                    project_name varchar(255) NOT NULL,
+                                                              start_date DATE, incharge int,
+                      FOREIGN KEY(incharge) REFERENCES employee(empid));
+
+-- insert data into the Project Table
+
+INSERT INTO Project (projectid, project_name, start_date, incharge)
+VALUES (1, 'Brainstation Foundation', '2026-01-15', 3),
+       (2, 'I4E Web App', '2026-02-01', 1),
+       (3, 'NFD', '2026-03-01', 3),
+       (4, 'IV Capital', '2026-03-01', 2);
+
+-- insert another set
+
+INSERT INTO Project (projectid, project_name, start_date, incharge)
+VALUES (5, 'InvestValue Titans', '2026-01-15', 2);
