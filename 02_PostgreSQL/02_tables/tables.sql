@@ -5,7 +5,8 @@
 
 CREATE TABLE Employee(empid int PRIMARY KEY,
                                 name varchar(255) NOT NULL,
-                                                  age int, salary float(10));
+                                                  age int, salary float(10),
+                                                                  CONSTRAINT C1 UNIQUE(empid));
 
 
 SELECT *
@@ -23,7 +24,7 @@ DROP TABLE employee;
 --3. INSERT DATA
 
 INSERT INTO employee (empid, name, age, salary)
-VALUES (2, 'Manish', 44, 120000);
+VALUES (2, 'Ashish', 44, 120000);
 
 -- 4. MODIFY TABLE COLUMN using ALTER
 
@@ -53,3 +54,16 @@ WHERE age is NULL
 ALTER TABLE employee
 ALTER column age
 SET NOT NULL;
+
+-- 5. UNIQUE on ALTER TABLE
+a.
+ALTER TABLE employee ADD UNIQUE (column);
+
+-- to add the constraint
+b.
+ALTER TABLE employee ADD CONSTRAINT C1 UNIQUE(columns);
+
+-- to remove the constraint
+c.
+ALTER TABLE employee
+DROP INDEX C1;
