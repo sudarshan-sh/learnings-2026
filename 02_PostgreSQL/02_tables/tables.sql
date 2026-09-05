@@ -24,7 +24,7 @@ DROP TABLE employee;
 --3. INSERT DATA
 
 INSERT INTO employee (empid, name, age, salary)
-VALUES (2, 'Ashish', 44, 120000);
+VALUES (4, 'Aditya', 38, 115000);
 
 -- 4. MODIFY TABLE COLUMN using ALTER
 
@@ -81,9 +81,30 @@ INSERT INTO Project (projectid, project_name, start_date, incharge)
 VALUES (1, 'Brainstation Foundation', '2026-01-15', 3),
        (2, 'I4E Web App', '2026-02-01', 1),
        (3, 'NFD', '2026-03-01', 3),
-       (4, 'IV Capital', '2026-03-01', 2);
+       (4, 'IV Capital', '2026-03-01', 2),
+       (5, 'InvestValue Titans', '2026-01-15', 2);
 
 -- insert another set
 
 INSERT INTO Project (projectid, project_name, start_date, incharge)
-VALUES (5, 'InvestValue Titans', '2026-01-15', 2);
+VALUES (6, 'InvestValue Research Basket', '2026-01-15', 4);
+
+-- to add a foreign key constraint to a table that already exists
+
+ALTER TABLE Project ADD CONSTRAINT FK_Project_Employee
+FOREIGN KEY (incharge) REFERENCES employee(empid) ON
+DELETE
+SET NULL ON
+UPDATE CASCADE;
+
+-- the original CREATE TABLE (line above) added a plain FOREIGN KEY with no
+-- ON DELETE/UPDATE action, which defaults to NO ACTION (restrict). That
+-- default-named constraint still exists alongside FK_Project_Employee, and
+-- Postgres enforces every FK constraint on a column -- so deletes still get
+-- blocked by it even though FK_Project_Employee allows SET NULL.
+-- drop the old restrictive constraint so only FK_Project_Employee applies:
+
+ALTER TABLE Project DROP CONSTRAINT project_incharge_fkey;
+
+-- now deleting an employee sets their projects' incharge to NULL instead of failing
+DELETE FROM employee WHERE empid = 4;
