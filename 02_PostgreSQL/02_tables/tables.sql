@@ -24,7 +24,7 @@ DROP TABLE employee;
 --3. INSERT DATA
 
 INSERT INTO employee (empid, name, age, salary)
-VALUES (4, 'Aditya', 38, 115000);
+VALUES (5, 'Ritesh', 25, 75000);
 
 -- 4. MODIFY TABLE COLUMN using ALTER
 
@@ -104,7 +104,20 @@ UPDATE CASCADE;
 -- blocked by it even though FK_Project_Employee allows SET NULL.
 -- drop the old restrictive constraint so only FK_Project_Employee applies:
 
-ALTER TABLE Project DROP CONSTRAINT project_incharge_fkey;
+ALTER TABLE Project
+DROP CONSTRAINT project_incharge_fkey;
 
 -- now deleting an employee sets their projects' incharge to NULL instead of failing
-DELETE FROM employee WHERE empid = 4;
+
+DELETE
+FROM employee
+WHERE empid = 4;
+
+-- CHECK on ALTER for specifying the condition on a column
+
+ALTER TABLE employee ADD CONSTRAINT check_age CHECK (age >=18);
+
+
+UPDATE employee
+SET age=22
+WHERE empid=4;
