@@ -37,4 +37,11 @@ CREATE TABLE Products (
 
 -- insert values in products table
 INSERT INTO products (ProductID, ProductName)
-VALUES (1, 'Mobile');
+VALUES (2, 'TV');
+
+INSERT INTO products (ProductID, ProductName, StockLevel)
+VALUES (3, 'iPad', 7);
+
+-- modifying existing table by adding DEFAULT constraint on Stock Level-
+ALTER TABLE products
+ALTER COLUMN StockLevel SET DEFAULT 5;
