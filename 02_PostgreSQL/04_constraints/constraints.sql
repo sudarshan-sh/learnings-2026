@@ -25,3 +25,15 @@ CREATE TABLE students(
 -- insert data in students table
 INSERT INTO students (StudentID, StudentName, age) 
 VALUES (2, 'Viha', 4);
+
+-- create a table with constraint DEFAULT
+CREATE TABLE Products (
+    ProductID int PRIMARY KEY,
+    ProductName varchar(100),
+    StockLevel int DEFAULT 0,
+    ProductStatus varchar(100) DEFAULT 'Pending',
+    DateAdded TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+INSERT INTO products (ProductID, ProductName)
+VALUES (1, 'Mobile');
