@@ -137,3 +137,36 @@ CHECK (OrderStatus IN ('Pending',
                        'Cancelled'));
 
 CHECK (Email LIKE '%@%.%');
+
+-- ============================
+-- ALTER COMMAND
+-- ============================
+-- 1. to add a column
+
+ALTER TABLE employee ADD city varchar(100);
+
+
+ALTER TABLE employee ADD department_type varchar(100);
+
+
+CREATE TYPE department_type AS ENUM ('HR',
+                                     'Sales',
+                                     'Accounts',
+                                     'Technology');
+
+
+ALTER TABLE employee
+ALTER COLUMN department_type TYPE department_type USING department_type ::department_type;
+
+-- run the below command inside db1=# (to see the column detail picture)
+db1=# \dT+ department_type
+-- =============================================
+-- 2. to modify/rename a column name
+
+ALTER TABLE employee RENAME COLUMN department_type to dept_type;
+
+-- =============================================
+-- 3. to delete a column name
+
+ALTER TABLE employee
+DROP COLUMN dept;
