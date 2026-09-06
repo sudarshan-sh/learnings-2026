@@ -35,5 +35,6 @@ CREATE TABLE Products (
     DateAdded TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
+-- insert values in products table
 INSERT INTO products (ProductID, ProductName)
 VALUES (1, 'Mobile');
