@@ -178,3 +178,32 @@ UPDATE employee
 SET dept = 'Sales'
 WHERE empid IN (2,
                 5);
+
+-- ============================
+-- FILTERING RESULTS
+-- ============================
+-- matching patterns (LIKE / ILIKE):
+
+SELECT *
+from employee
+WHERE name ILIKE 'm%';
+
+-- Checking Ranges and Lists (BETWEEN, IN):
+
+SELECT *
+from employee
+WHERE dept IN ('Sales',
+               'Technology');
+
+-- Sort data (ORDER BY):
+
+SELECT *
+from employee
+ORDER BY salary DESC;
+
+-- Limit the number of rows returned (LIMIT):
+
+SELECT *
+FROM employee
+ORDER BY salary DESC
+LIMIT 5;
