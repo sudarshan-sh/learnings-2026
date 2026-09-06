@@ -170,3 +170,11 @@ ALTER TABLE employee RENAME COLUMN department_type to dept_type;
 
 ALTER TABLE employee
 DROP COLUMN dept;
+
+-- ============================
+-- update rows with the department type values
+
+UPDATE employee
+SET dept = 'Sales'
+WHERE empid IN (2,
+                5);
