@@ -207,3 +207,8 @@ SELECT *
 FROM employee
 ORDER BY salary DESC
 LIMIT 5;
+
+-- for unique/distinct values
+
+SELECT DISTINCT name
+FROM employee;
