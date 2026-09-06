@@ -117,7 +117,13 @@ WHERE empid = 4;
 
 ALTER TABLE employee ADD CONSTRAINT check_age CHECK (age >=18);
 
+-- updating the employee's age
 
 UPDATE employee
 SET age=22
 WHERE empid=4;
+
+-- to drop the already applied constraint
+
+ALTER TABLE employee
+DROP CHECK check_age;
