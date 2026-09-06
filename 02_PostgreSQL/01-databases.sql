@@ -16,3 +16,6 @@ DROP DATABASE IF EXISTS sdb_new;
 
 -- via SQL:
 SELECT datname FROM pg_database;
+
+-- 4. CONNECT to a database via docker (interactive psql session)
+-- docker exec -it myDb psql -U sudarshan -d db1
