@@ -127,3 +127,13 @@ WHERE empid=4;
 
 ALTER TABLE employee
 DROP CHECK check_age;
+
+-- common use cases of CHECK constraints
+ CHECK (discount BETWEEN 0 AND 50);
+
+CHECK (OrderStatus IN ('Pending',
+                       'Shipped',
+                       'Delivered',
+                       'Cancelled'));
+
+CHECK (Email LIKE '%@%.%');
